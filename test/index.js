@@ -2,7 +2,7 @@ const { describe, it, beforeEach, afterEach } = require('node:test')
 const assert = require('node:assert/strict')
 const fs = require('node:fs')
 
-const dotenv = require('../index.js')
+const dotenv = require('../dotenv.js')
 
 describe('1. dotenv', () => {
   beforeEach(() => {
@@ -25,6 +25,7 @@ describe('1. dotenv', () => {
   it('1.1. load .env file', () => {
     // create .env file in root directory
     fs.writeFileSync('.env', 'PORT=3000\nTOKEN="123abc"')
+
     dotenv.config()
 
     assert.equal(process.env.PORT, '3000')
